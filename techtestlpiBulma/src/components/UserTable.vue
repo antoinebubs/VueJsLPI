@@ -7,8 +7,8 @@
           <th><abbr title="Played">First Name</abbr></th>
           <th><abbr title="Won">Last Name</abbr></th>
           <th><abbr title="Drawn">Email</abbr></th>
-          <th><abbr title="Lost">Country</abbr></th>
-          <th><abbr title="Goals for">City</abbr></th>
+          <th><abbr title="Lost">City</abbr></th>
+          <th><abbr title="Goals for">Country</abbr></th>
         </tr>
       </thead>
       <tbody>

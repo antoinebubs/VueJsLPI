@@ -147,25 +147,6 @@ export default {
   },
   created: function () {
     this.getUsers();
-    // this.$store.watch(
-    //   (state) => state.users,
-    //   () => {
-    //     this.users = this.$store.state.users;
-    //     this.$store.dispatch("users/getUsers");
-    //   }
-    // );
-    // axios({
-    //   method: "get",
-    //   url: "https://fakerapi.it/api/v1/persons?_locale=fr_FR",
-    // })
-    //   .then((res) => {
-    //     console.log(res);
-    //     console.log(res.data.data[0]);
-    //     this.users = res.data.data;
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
   },
 };
 </script>
