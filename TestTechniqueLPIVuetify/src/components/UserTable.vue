@@ -1,5 +1,6 @@
 <template>
   <v-container>
+    <h1>Test LPI</h1>
     <v-simple-table>
       <template v-slot:default>
         <thead>
