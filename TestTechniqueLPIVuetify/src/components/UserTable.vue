@@ -1,6 +1,50 @@
 <template>
   <v-container>
-    <h1>Test LPI</h1>
+    <div>
+    <v-app-bar
+      class="navbar"
+      dense
+    >
+      <v-app-bar-nav-icon color="white" ></v-app-bar-nav-icon>
+
+      <v-toolbar-title>Learning Planet Institut</v-toolbar-title>
+      
+      <v-spacer></v-spacer>
+
+      <v-btn icon>
+        <v-icon color="white">mdi-heart</v-icon>
+      </v-btn>
+
+      <v-btn icon>
+        <v-icon color="white">mdi-magnify</v-icon>
+      </v-btn>
+
+      <v-menu
+        left
+        bottom
+      >
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn
+            icon
+            v-bind="attrs"
+            v-on="on"
+          >
+            <v-icon color="white">mdi-dots-vertical</v-icon>
+          </v-btn>
+        </template>
+
+        <v-list>
+          <v-list-item
+            v-for="n in 5"
+            :key="n"
+            @click="() => {}"
+          >
+            <v-list-item-title>Option {{ n }}</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu>
+    </v-app-bar>
+  </div>
     <v-simple-table>
       <template v-slot:default>
         <thead>
@@ -12,7 +56,7 @@
             <th class="text-left">City</th>
             <th class="text-left">Country</th>
             <th class="text-left">
-              Actions<v-btn color="primary" v-on:click="dialog = true">
+            <v-btn class="adduser" v-on:click="dialog = true">
                 Add user</v-btn
               >
             </th>
@@ -27,10 +71,15 @@
             <td>{{ user.address.city }}</td>
             <td>{{ user.address.country }}</td>
             <td>
-              <v-btn v-on:click="openedit(user.id)">Edit</v-btn>
-              <v-btn v-on:click="deleteUser(user.id)" :key="user.id">
-                Delete</v-btn
-              >
+              <v-row >
+                <v-col class="edit">
+              <font-awesome-icon v-on:click="openedit(user.id)" icon="fa-solid fa-pen"/>
+            </v-col>
+            <v-col class="delete">
+              <i v-on:click="deleteUser(user.id)" :key="user.id" >
+                <font-awesome-icon icon="fa-solid fa-trash"  /></i
+              ></v-col>
+            </v-row>
             </td>
           </tr>
         </tbody>
@@ -84,7 +133,7 @@
           </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="blue darken-1" text @click="reset()"> Close </v-btn>
+            <v-btn color="black" text @click="reset()"> Close </v-btn>
             <v-btn color="blue darken-1" text @click="saveuser()"> Save </v-btn>
           </v-card-actions>
         </v-card>
@@ -151,3 +200,22 @@ export default {
   },
 };
 </script>
+<style scoped>
+.edit {
+  flex-grow: 0;
+  color: darkblue;
+}
+.delete {
+  flex-grow: 0;
+  color: red;
+}
+.adduser {
+  color: white !important;
+  background: darkblue !important;
+}
+.navbar {
+  color: white;
+  background: darkblue !important;
+}
+
+</style>
